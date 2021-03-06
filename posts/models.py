@@ -1,12 +1,13 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from textwrap import shorten
+from .validators import validator_not_empty
 
 User = get_user_model()
 
 
 class Post(models.Model):
-    text = models.TextField()
+    text = models.TextField(validators=[validator_not_empty])
     pub_date = models.DateTimeField("date published", auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE,
                                related_name="posts")
