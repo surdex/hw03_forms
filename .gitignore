@@ -3,10 +3,14 @@ env/
 venv/
 .venv
 .venv/
-
+tests
+pytest.ini
 __pycache__/
 *.py[cod]
+yatube1
 
+.vscode/
+sent_emails
 .idea
 .DS_Store
 .AppleDouble
