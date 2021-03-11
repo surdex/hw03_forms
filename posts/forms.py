@@ -16,8 +16,9 @@ class PostForm(ModelForm):
             'group': gtl('Выберите группу, которая лучше всего '
                          'подходит к теме Вашего поста.')
         }
-
-    def check_request(request):
-        if request.POST or None:
-            return PostForm(request.POST)
-        return PostForm()
+        error_messages = {
+            'text': {
+                'required': gtl('Посты без текста мало кому интересны, '
+                                'пожалуйста, поделитесь своей историей!'),
+            },
+        }

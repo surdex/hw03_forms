@@ -17,7 +17,7 @@ def group_posts(request, slug):
 
 
 def new_post(request):
-    form = PostForm.check_request(request)
+    form = PostForm(request.POST or None)
     if form.is_valid():
         post = form.save(commit=False)
         post.author = request.user
